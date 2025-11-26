@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>PredictivCare — mtDNA Copy Number Report</title>
+<style>
+  :root{
+    --bg:#f4f7fa;
+    --card:#ffffff;
+    --muted:#606c78;
+    --accent:#0077c8;
+    --accent-2:#009e6f;
+    --panel:#e9eef3;
+    --border:#d8e0e8;
+    --text:#1c1f22;
+    --danger:#d64545;
+    --good:#1a8f45;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  }
+
+  html,body{height:100%;margin:0;background:var(--bg);color:var(--text);}
+  .wrap{max-width:900px;margin:28px auto;padding:20px;}
+  .header{display:flex;align-items:center;gap:16px;margin-bottom:18px;}
+  .brand{
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));
+    width:56px;height:56px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+    color:white;font-weight:800;font-size:20px;box-shadow:0 3px 10px rgba(0,0,0,0.15);
+  }
+
+  h1{margin:0;font-size:22px;color:var(--text);}
+  p.lead{margin:4px 0 0;color:var(--muted);font-size:14px;}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:18px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom:18px;
+  }
+
+  .muted{color:var(--muted);font-size:13px;}
+  table{width:100%;border-collapse:collapse;margin-top:10px;background:white;}
+  th,td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border);font-size:14px}
+  th{background:var(--panel);font-weight:600;color:var(--text)}
+  .mono{font-family:ui-monospace,Menlo,monospace;background:#eef3f8;padding:5px 8px;border-radius:6px;font-size:13px;border:1px solid var(--border);}
+
+  .flag-low{color:var(--danger);font-weight:700;}
+  .flag-high{color:var(--good);font-weight:700;}
+
+  details{background:var(--panel);padding:10px;border-radius:8px;border:1px solid var(--border);margin-top:14px;}
+  summary{cursor:pointer;font-weight:700;color:var(--text)}
+</style>
+</head>
+
+<body>
+  <div class="wrap">
+    
+    <!-- HEADER -->
+    <div class="header">
+      <div class="brand">mt</div>
+      <div>
+        <h1>Mitochondrial DNA Copy Number Report</h1>
+        <p class="lead">PredictivCare — qPCR-based mtDNA-CN Assessment</p>
+      </div>
+    </div>
+
+    <!-- PATIENT SUMMARY -->
+    <div class="card">
+      <h3 style="margin:0 0 8px 0;font-size:16px;color:var(--text)">Patient Summary</h3>
+      <div class="muted" style="font-size:14px">
+        <strong>Name:</strong> John Doe<br>
+        <strong>DOB:</strong> November 12, 1982<br>
+        <strong>Sex:</strong> Male<br>
+        <strong>Sample Type:</strong> Whole blood (EDTA)<br>
+        <strong>Collection Date:</strong> 01/14/2025<br>
+        <strong>Patient ID:</strong> PC-2025-MT001<br>
+        <strong>Laboratory:</strong> PredictivCare
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="card">
+      <h3 style="margin:0;font-size:16px">mtDNA Copy Number — Results</h3>
+
+      <table>
+        <tr>
+          <th>Metric</th><th>Result</th><th>Reference Range</th><th>Interpretation</th>
+        </tr>
+        <tr>
+          <td><strong>Absolute mtDNA Copy Number</strong></td>
+          <td><span class="mono">142 copies/cell</span></td>
+          <td>160–260 copies/cell</td>
+          <td><span class="flag-low">Low</span></td>
+        </tr>
+        <tr>
+          <td>Percentile</td>
+          <td><span class="mono">21st percentile</span></td>
+          <td>≥40th percentile normal</td>
+          <td><span class="flag-low">Below expected</span></td>
+        </tr>
+        <tr>
+          <td>Quartile</td>
+          <td><span class="mono">Q1</span></td>
+          <td>Q2–Q3 typical</td>
+          <td><span class="flag-low">Lower quartile</span></td>
+        </tr>
+      </table>
+
+      <!-- INTERPRETATION -->
+      <details open>
+        <summary>Interpretive Summary</summary>
+        <div class="muted" style="margin-top:8px;font-size:14px">
+          John Doe’s mtDNA copy number of <strong>142 copies/cell</strong> places him in the <strong>lower quartile (Q1)</strong> of
+          reference adult mitochondrial copy number distributions.  
+          <br><br>
+          This suggests **reduced mitochondrial genome abundance**, which may be associated with metabolic or oxidative stress.  
+          <br><br>
+          This result **is not diagnostic** and must be interpreted alongside clinical symptoms and additional biomarkers.
+        </div>
+      </details>
+
+      <!-- CLINICAL IMPLICATIONS -->
+      <details>
+        <summary>Clinical Interpretation</summary>
+        <div class="muted" style="margin-top:8px;font-size:14px">
+          Lower mtDNA-CN has been associated with:
+          <ul>
+            <li>Reduced mitochondrial biogenesis</li>
+            <li>Oxidative stress or chronic inflammatory load</li>
+            <li>Higher long-term cardiometabolic risk in population studies</li>
+            <li>Lower overall mitochondrial resilience in aging</li>
+          </ul>
+          These associations are **not causal** and should not be used to infer disease without supporting evidence.
+        </div>
+      </details>
+
+      <!-- FACTORS -->
+      <details>
+        <summary>Factors That May Influence This Result</summary>
+        <div class="muted" style="margin-top:8px;font-size:14px">
+          <ul>
+            <li>Recent infection or inflammation</li>
+            <li>Smoking history</li>
+            <li>Sedentary lifestyle</li>
+            <li>Poor sleep or high stress</li>
+            <li>Platelet/WBC ratio variability</li>
+            <li>Sample handling differences</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- RECOMMENDATIONS -->
+      <details>
+        <summary>Recommendations</summary>
+        <div class="muted" style="margin-top:8px;font-size:14px">
+          <ul>
+            <li>Repeat mtDNA-CN in <strong>8–12 weeks</strong> to assess consistency.</li>
+            <li>Check CBC with differential to adjust for blood cell composition.</li>
+            <li>If symptoms (fatigue, muscle weakness, neuropathy) are present:
+              <ul>
+                <li>Mitochondrial function labs (lactate, pyruvate)</li>
+                <li>mtDNA sequencing for pathogenic variants</li>
+              </ul>
+            </li>
+            <li>Supportive lifestyle: moderate exercise, antioxidant-rich diet, good sleep, stress reduction.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- ASSAY -->
+      <details>
+        <summary>Assay & Quality Notes</summary>
+        <div class="muted" style="margin-top:8px;font-size:14px">
+          qPCR assay targeting <strong>mt-ND1</strong>, normalized to single-copy nuclear gene <strong>B2M</strong>.  
+          Triplicate wells analyzed; inter-plate calibrator included.  
+          Technical CV: <strong>3.2%</strong>.  
+          All amplification curves and melt curves passed QC.
+        </div>
+      </details>
+
+    </div>
+
+    <footer style="text-align:center;color:var(--muted);font-size:12px;margin-top:20px">
+      Report generated by PredictivCare — For research-use interpretation only.
+    </footer>
+
+  </div>
+</body>
+</html>
